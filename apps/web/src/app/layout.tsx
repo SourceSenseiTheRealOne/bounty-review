@@ -19,8 +19,8 @@ const displayFont = Unbounded({
 });
 
 export const metadata: Metadata = {
-  title: "SomniBounty AI",
-  description: "Autonomous security triage and bounty escrow on Somnia.",
+  title: "Bounty Review",
+  description: "A Somnia hackathon prototype for agent-assisted security review and bounty escrow.",
 };
 
 export default function RootLayout({

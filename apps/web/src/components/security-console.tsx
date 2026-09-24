@@ -132,7 +132,7 @@ function MatrixLoader() {
       <div className="relative z-10 flex min-h-[100dvh] items-center justify-center px-6 text-center">
         <div className="mx-auto flex w-full max-w-xl flex-col items-center">
           <h1 className="chrome-text font-display text-4xl font-semibold sm:text-6xl">
-            SomniBounty AI
+            Bounty Review
           </h1>
           <p className="mt-4 font-mono text-xs uppercase tracking-[0.32em] text-emerald-100/70">
             Somnia agents initializing
@@ -205,7 +205,7 @@ function ConnectWalletView({
         exit={{ y: -12, opacity: 0 }}
       >
         <p className="font-mono text-xs uppercase tracking-[0.28em] text-emerald-200/70">
-          SomniBounty AI
+          Bounty Review
         </p>
         <h1 className="chrome-text mt-3 font-display text-4xl font-semibold sm:text-6xl">
           Connect wallet
@@ -214,7 +214,7 @@ function ConnectWalletView({
           Connect on Somnia Testnet to load your projects, bounties, agent logs, and paid history.
         </p>
         <p className="mx-auto mt-3 max-w-lg text-sm leading-6 text-emerald-100/62">
-          SomniBounty AI lets teams publish smart contract repos, fund security bounty tiers, and
+          Bounty Review lets teams publish smart contract repos, fund security bounty tiers, and
           route discovery, review, PR creation, and payout through Somnia agent automation.
         </p>
         <div className="mt-8 flex justify-center">
@@ -244,7 +244,7 @@ function ShellNav({
   return (
     <nav className="nav-glass flex flex-wrap items-center justify-between gap-3 rounded-full border border-white/10 px-4 py-3">
       <Link href="/" className="iris-text font-display text-base font-semibold">
-        SomniBounty AI
+        Bounty Review
       </Link>
       <div className="flex flex-wrap items-center gap-2">
         {(["overview", "logs", "paid"] as DashboardView[]).map((view) => (

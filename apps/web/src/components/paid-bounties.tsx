@@ -63,7 +63,7 @@ export function PaidBounties() {
       <div className="relative z-10 mx-auto max-w-[86rem]">
         <nav className="nav-glass flex flex-wrap items-center justify-between gap-3 rounded-full border border-white/10 px-4 py-3">
           <Link href="/" className="iris-text font-display text-base font-semibold">
-            SomniBounty AI
+            Bounty Review
           </Link>
           <Link href="/" className="btn-ghost px-4 py-2 text-sm">
             Console
