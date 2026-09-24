@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800" role="img" aria-labelledby="title desc">
+  <title id="title">Bounty Review architecture</title>
+  <desc id="desc">Source-level architecture of a Somnia hackathon prototype. A browser funds contract escrow. The contract coordinates asynchronous JSON and LLM agents. A Next.js backend reads GitHub code, proposes a pull request through OpenAI and pins metadata through Pinata. A valid final callback can release escrow to a fixed collector. The recorded deployment has no verified completed finding-to-payout run.</desc>
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" stroke="#1b2533" stroke-width="0.6"/></pattern>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10Z" fill="#94a3b8"/></marker>
+    <marker id="return" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#f0a799"/></marker>
+    <style>
+      text{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;fill:#e8edf3}
+      .muted{fill:#a8b6c7;font-size:14px}.label{font-size:13px;fill:#bcc8d5}.name{font-size:19px;font-weight:600}.small{font-size:12px;letter-spacing:1.5px;fill:#a8b6c7}.flow{fill:none;stroke:#94a3b8;stroke-width:1.7;marker-end:url(#arrow)}
+    </style>
+  </defs>
+  <rect width="1200" height="800" rx="16" fill="#0b111a"/>
+  <rect width="1200" height="800" rx="16" fill="url(#grid)"/>
+  <text x="48" y="49" class="small">SOMNIA AGENTATHON / SOURCE ARCHITECTURE</text>
+  <text x="48" y="92" font-size="34" font-weight="650">Bounty Review</text>
+  <text x="48" y="120" class="muted">Agent-assisted security review with contract-owned bounty state</text>
+
+  <!-- Flows are drawn before opaque nodes. -->
+  <path d="M340 221H456" class="flow"/>
+  <text x="354" y="196" class="label">signed calls</text>
+  <path d="M804 221H919" class="flow"/>
+  <text x="818" y="193" class="label">VALID verdict</text>
+  <text x="826" y="211" class="label">then transfer</text>
+  <path d="M180 278V373" class="flow"/>
+  <text x="193" y="330" class="label">metadata</text>
+  <path d="M580 311V373" class="flow"/>
+  <text x="468" y="348" class="label">requests</text>
+  <path d="M714 376V313" fill="none" stroke="#f0a799" stroke-width="1.7" stroke-dasharray="5 4" marker-end="url(#return)"/>
+  <text x="730" y="349" class="label">callbacks</text>
+  <path d="M459 408H342" class="flow"/>
+  <text x="351" y="391" class="label">HTTP GET</text>
+  <path d="M340 466H456" class="flow"/>
+  <text x="356" y="492" class="label">evidence / PR</text>
+  <path d="M194 536V590" class="flow"/>
+  <text x="208" y="567" class="label">provider calls</text>
+
+  <rect x="48" y="164" width="292" height="114" rx="8" fill="#111e28" stroke="#76bbc9"/>
+  <text x="70" y="197" class="name">Browser + wallet</text>
+  <text x="70" y="226" class="muted">Register / fund / inspect</text>
+  <text x="70" y="250" class="muted">Next.js · React · viem</text>
+
+  <rect x="460" y="164" width="344" height="147" rx="8" fill="#18201d" stroke="#7dbb9e"/>
+  <text x="482" y="197" class="name">On-chain state</text>
+  <text x="482" y="226" class="muted">Projects → jobs → incidents</text>
+  <text x="482" y="250" class="muted">Fixes / fee reserve / escrow</text>
+  <path d="M482 267H781" stroke="#35483e"/>
+  <text x="482" y="291" class="muted">+ vulnerability registry</text>
+
+  <rect x="922" y="164" width="230" height="114" rx="8" fill="#1b2028" stroke="#94a3b8"/>
+  <text x="944" y="197" class="name">Fixed collector</text>
+  <text x="944" y="226" class="muted">Platform payout wallet</text>
+  <text x="944" y="250" class="muted">No arbitrary recipient</text>
+
+  <rect x="48" y="376" width="292" height="160" rx="8" fill="#13251f" stroke="#7dbb9e"/>
+  <text x="70" y="409" class="name">Next.js backend</text>
+  <text x="70" y="438" class="muted">Repository snapshot</text>
+  <text x="70" y="462" class="muted">Generated patch + GitHub PR</text>
+  <text x="70" y="486" class="muted">IPFS metadata pinning</text>
+  <text x="70" y="517" font-size="13" fill="#f0a799">GET /api/fix-pr can write</text>
+
+  <rect x="460" y="376" width="344" height="160" rx="8" fill="#242019" stroke="#cab47a"/>
+  <text x="482" y="409" class="name">Somnia Agents</text>
+  <text x="482" y="438" class="muted">JSON API: snapshot / PR URL</text>
+  <text x="482" y="462" class="muted">LLM: classify / second review</text>
+  <text x="482" y="486" class="muted">LLM: final verdict</text>
+  <text x="482" y="517" class="muted">Asynchronous platform callbacks</text>
+
+  <rect x="48" y="594" width="292" height="103" rx="8" fill="#18202b" stroke="#94a3b8"/>
+  <text x="70" y="627" class="name">External services</text>
+  <text x="70" y="656" class="muted">GitHub App / OpenAI / Pinata</text>
+  <text x="70" y="680" class="muted">Server credentials required</text>
+
+  <rect x="460" y="594" width="692" height="103" rx="8" fill="#211d21" stroke="#a6818c" stroke-dasharray="5 4"/>
+  <text x="482" y="624" font-size="17" font-weight="600">A verdict is not a tested fix.</text>
+  <text x="482" y="651" class="muted">Partial evidence; final review receives a proof URL, not test results.</text>
+  <text x="482" y="678" class="muted">Historical deployment: no completed finding-to-payout run verified.</text>
+
+  <!-- Legend remains outside every component boundary. -->
+  <path d="M48 739H87" class="flow"/><text x="100" y="744" class="label">source data / control flow</text>
+  <path d="M385 739H424" fill="none" stroke="#f0a799" stroke-width="1.7" stroke-dasharray="5 4" marker-end="url(#return)"/><text x="437" y="744" class="label">platform-authorized callback</text>
+  <text x="48" y="777" class="small">ARCHITECTURE DOCUMENTATION · NOT A LIVE STATUS BOARD</text>
+</svg>
